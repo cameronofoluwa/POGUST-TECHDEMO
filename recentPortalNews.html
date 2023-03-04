@@ -3,9 +3,7 @@
         <template if:true={tableData}>
             <div class="slds-m-around_medium">
                 <template for:each={tableData} for:item="rec">
-                    <div class="slds-page-header slds-m-bottom_medium"
-                        style="background-color: white; border-top: 5px solid #0076d3; box-shadow: 3px 3px 2px 0px rgb(0 0 0 / 19%);"
-                        onclick={navigateToWebPage} id={rec.Id} key={rec.Id}>
+                    <div class="slds-page-header slds-m-bottom_medium newsRecordItem" onclick={navigateToWebPage} id={rec.Id} key={rec.Id}>
                         <div class="slds-page-header__row">
                             <div class="slds-page-header__col-title">
                                 <div class="slds-media">
