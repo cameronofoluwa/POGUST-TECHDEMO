@@ -3,8 +3,8 @@
         <template if:true={tableData}>
             <div class="slds-m-around_medium">
                 <template for:each={tableData} for:item="rec">
-                    <div class="slds-page-header"
-                        style="background-color: white; border-top: 5px solid #0076d3; box-shadow: 3px 3px 2px 0px rgb(0 0 0 / 19%); margin-bottom: 15px;"
+                    <div class="slds-page-header slds-m-bottom_medium"
+                        style="background-color: white; border-top: 5px solid #0076d3; box-shadow: 3px 3px 2px 0px rgb(0 0 0 / 19%);"
                         onclick={navigateToWebPage} id={rec.Id} key={rec.Id}>
                         <div class="slds-page-header__row">
                             <div class="slds-page-header__col-title">
@@ -27,7 +27,7 @@
                                                 </p>
 
                                                 <!-- The main body of the Portal News post -->
-                                                <div style="padding-top: 10px" class="recentNews-body">
+                                                <div class="slds-p-top_x-small recentNews-body">
                                                     <lightning-formatted-rich-text value={rec.News_Body__c}>
                                                     </lightning-formatted-rich-text>
                                                 </div>
@@ -42,7 +42,7 @@
             </div>
             <!-- View More button at the bottom -->
             <a href="https://nccgroup-a-dev-ed.develop.lightning.force.com/lightning/o/Portal_News__c/list?filterName=All"
-                style="padding-left: 20px"><span class="slds-text-link">View More Posts</span>.</a>
+                ><span class="slds-p-left_medium slds-text-link">View More Posts</span>.</a>
         </template>
     </lightning-card>
 </template>
