@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Recent Portal News">
+        <template if:true={tableData}>
+            <div class="slds-m-around_medium">
+                <template for:each={tableData} for:item="rec">
+                    <div class="slds-page-header"
+                        style="background-color: white; border-top: 5px solid #0076d3; box-shadow: 3px 3px 2px 0px rgb(0 0 0 / 19%); margin-bottom: 15px;"
+                        onclick={navigateToWebPage} id={rec.Id} key={rec.Id}>
+                        <div class="slds-page-header__row">
+                            <div class="slds-page-header__col-title">
+                                <div class="slds-media">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-standard-opportunity"
+                                            title="opportunity">
+                                            <lightning-icon slot="media" icon-name="standard:news"></lightning-icon>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-page-header__name">
+                                            <div class="slds-page-header__name-title">
+                                                <!-- The title of the Portal News Post & Created Date formatted in a readable format-->
+                                                <h1><span class="slds-page-header__title slds-truncate"
+                                                        title="test">{rec.News_Title__c}</span></h1>
+                                                <p>Date posted: <lightning-formatted-date-time value={rec.CreatedDate}>
+                                                    </lightning-formatted-date-time>
+                                                </p>
+                                                </p>
+
+                                                <!-- The main body of the Portal News post -->
+                                                <div style="padding-top: 10px" class="recentNews-body">
+                                                    <lightning-formatted-rich-text value={rec.News_Body__c}>
+                                                    </lightning-formatted-rich-text>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <!-- View More button at the bottom -->
+            <a href="https://nccgroup-a-dev-ed.develop.lightning.force.com/lightning/o/Portal_News__c/list?filterName=All"
+                style="padding-left: 20px"><span class="slds-text-link">View More Posts</span>.</a>
+        </template>
+    </lightning-card>
+</template>
