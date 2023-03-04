@@ -7,34 +7,12 @@
         NavigationMixin
     } from 'lightning/navigation';
 
-    import getOpenOpps from '@salesforce/apex/recentPortalNewsController.getRecentNews';
-
-    const newsColumns = [{
-            label: 'Name',
-            fieldName: 'Name'
-        },
-        {
-            label: 'Account ID',
-            fieldName: 'News_Title__c'
-        },
-        {
-            label: 'Account ID',
-            fieldName: 'News_Title__c'
-        },
-        {
-            label: 'Created By',
-            fieldName: 'CreatedById'
-        },
-        {
-            label: 'Created Date',
-            fieldName: 'CreatedDate'
-        },
-    ];
+    import getRecentNewsRecords from '@salesforce/apex/recentPortalNewsController.getRecentNews';
 
     export default class RecentPortalNews extends NavigationMixin(LightningElement) {
         @track tableData = [];
 
-        @wire(getOpenOpps)
+        @wire(getRecentNewsRecords)
         wiredOpps(result) {
             if (result.data) {
                 this.tableData = result.data;
